@@ -1,0 +1,181 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand"><i class="fa-solid fa-user fa-beat fa-xl"></i> ADMIN DASHBOARD</a>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li id="new" class="nav-item">
+            <a class="nav-link active btn btn-warning me-3" aria-current="page" (click)="viewdeliverydetails()" >View Orders</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link active btn btn-warning me-3" aria-current="page" (click)="NewDish()" >Add Dish</a>
+          </li>
+          <li  class="nav-item">
+            <a class="nav-link active btn btn-warning" aria-current="page" (click)="EditDish()">Edit Dish</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <button class="btn btn-success" (click)="logout()" type="submit">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- ADD NEW ITEMS -->
+  <div class="container mt-5">
+    <div class="row">
+      <!-- ADD NEW ITEM FORM -->
+        <form *ngIf="addformstatus" [formGroup]="addForm" class="form-control p-3 w-50" (ngSubmit)="addnew()">
+            <h5 class="text-primary">Add New Items</h5>
+            <!-- id -->
+            <input type="text" name="id" formControlName="id" class="form-control mb-2" placeholder="item id">
+             <!-- id error msg -->
+             <div *ngIf="this.addForm.get('id')?.errors && this.addForm.get('id')?.touched" class="text-danger">
+                <p>Invalid ID</p>
+            </div>
+            <!-- category -->
+            <label for="category">Choose Category:</label>
+
+            <select name="category" formControlName="category" class="form-control mb-2">
+              <option value="indian">Indian Dishes</option>
+              <option value="french">French Dishes</option>
+              <option value="chinese">Chinese Dishes</option>
+              <option value="japaneses">Japanese Dishes</option>
+              <option value="italian">Italian Dishes</option>
+              <option value="spanish">Spanish Dishes</option> 
+              <option value="lebanse">Lebanese Dishes</option>
+              <option value="american">American Dishes</option>
+
+            </select>
+             <!-- category error msg -->
+             <div *ngIf="this.addForm.get('dish')?.errors && this.addForm.get('dish')?.touched" class="text-danger">
+                <p>Invalid Category Name</p>
+            </div>
+            <!-- title -->
+            <input type="text" name="title" formControlName="title" class="form-control mb-2" placeholder="Dish Title">
+            <!-- title error msg -->
+            <div *ngIf="this.addForm.get('title')?.errors && this.addForm.get('title')?.touched" class="text-danger">
+                <p>Invalid Title</p>
+            </div>
+            <!-- image -->
+            <input type="text" name="image" formControlName="image" class="form-control mb-2" placeholder="Image URL">
+             <!-- image error msg -->
+             <div *ngIf="this.addForm.get('image')?.errors && this.addForm.get('image')?.touched" class="text-danger">
+                <p>Invalid Image URL </p>
+            </div>
+            <!-- price -->
+            <input type="text" name="price" formControlName="price" class="form-control mb-2" placeholder="Price Per Unit">
+             <!-- price error msg -->
+             <div *ngIf="this.addForm.get('price')?.errors && this.addForm.get('price')?.touched" class="text-danger">
+                <p>Invalid price</p>
+            </div>
+            <button type="submit" class="btn btn-success justify-content-end">Save</button>
+        </form>
+    </div>
+    <div>
+       <!-- EDIT ITEM FORM -->
+       <form *ngIf="editformstatus" [formGroup]="editForm" class="form-control p-3 w-50" (ngSubmit)="editItem()">
+        <h5 class="text-primary">Edit Items</h5>
+        <!-- id -->
+        <input type="text" name="id" formControlName="id" class="form-control mb-2" placeholder="item id">
+         <!-- id error msg -->
+         <div *ngIf="this.editForm.get('id')?.errors && this.editForm.get('id')?.touched" class="text-danger">
+            <p>Invalid ID</p>
+        </div>
+        <!-- category -->
+        <label for="category">Choose Category:</label>
+
+        <select name="category" formControlName="category" class="form-control mb-2">
+          <option value="indian">Indian Dishes</option>
+          <option value="french">French Dishes</option>
+          <option value="chinese">Chinese Dishes</option>
+          <option value="japaneses">Japanese Dishes</option>
+          <option value="italian">Italian Dishes</option>
+          <option value="spanish">Spanish Dishes</option> 
+          <option value="lebanse">Lebanese Dishes</option>
+          <option value="american">American Dishes</option>
+
+        </select>
+         <!-- category error msg -->
+         <div *ngIf="this.editForm.get('dish')?.errors && this.editForm.get('dish')?.touched" class="text-danger">
+            <p>Invalid Category Name</p>
+        </div>
+        <!-- title -->
+        <input type="text" name="title" formControlName="title" class="form-control mb-2" placeholder="Dish Title">
+        <!-- title error msg -->
+        <div *ngIf="this.editForm.get('title')?.errors && this.editForm.get('title')?.touched" class="text-danger">
+            <p>Invalid Title</p>
+        </div>
+        <!-- image -->
+        <input type="text" name="image" formControlName="image" class="form-control mb-2" placeholder="Image URL">
+         <!-- image error msg -->
+         <div *ngIf="this.editForm.get('image')?.errors && this.editForm.get('image')?.touched" class="text-danger">
+            <p>Invalid Image URL </p>
+        </div>
+        <!-- price -->
+        <input type="text" name="price" formControlName="price" class="form-control mb-2" placeholder="Price Per Unit">
+         <!-- price error msg -->
+         <div *ngIf="this.editForm.get('price')?.errors && this.editForm.get('price')?.touched" class="text-danger">
+            <p>Invalid price</p>
+        </div>
+        <button type="submit" class="btn btn-success justify-content-end">Save</button>
+    </form>
+    </div>
+  </div>
+  <div *ngIf="!deliverydetailstatus" class="container p-2">
+    <h3 class="text-success">Resevation Details</h3>
+    <table class="table border p-3">
+      <thead class="bg-success">
+        <tr>
+        <th>Name</th>
+        <th>Mobile Number</th>
+        <th>Date</th>
+        <th>No.of Peoples</th>
+        <th>Special Request</th>
+        <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detail of ReservationDetails">
+          <td>{{detail.name}}</td>
+          <td>{{detail.phone}}</td>
+          <td>{{detail.date}}</td>
+          <td>{{detail.peoples}}</td>
+          <td>{{detail.request}}</td>
+          <td>
+            <button (click)="removeReservation(detail.phone)" class="btn btn-primary"><i class="fa-solid fa-trash fa-beat me-2" style="color: #e3230d;"></i>Cancel</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="deliverydetailstatus" class="container mt-5">
+    <div>
+      <h3 class="text-success text-center">Orders</h3>
+      <table class="table border p-3">
+        <thead  class="bg-primary">
+          <tr>
+            <th>Username</th>
+            <th>Flat/Apartment N0.</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let details of DeliveryDetails">
+            <td>{{details.username}}</td>
+            <td>{{details.flat}}</td>
+            <td>{{details.street}}</td>
+            <td>{{details.state}}</td>
+            <td>
+              <button (click)="removeDelivery(details.username)" class="btn btn-primary">Order Placed</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

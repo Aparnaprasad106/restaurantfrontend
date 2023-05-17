@@ -1,0 +1,93 @@
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg bg-dark ">
+    <div class="container-fluid">
+      <i class="fa-solid fa-utensils fa-2xl" style="color: #f4aa0b;"></i>
+      <a id="h1" class="navbar-brand ms-4" href="">RESTORAN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  text-light" href="/#about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/#service">SERVICE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/#h2">MENU</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle  text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              PAGES
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/#res">Booking</a></li>
+              <li><a class="dropdown-item" href="/#team">Our Team</a></li>
+              <li><a class="dropdown-item" href="/#test">Testimonial</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning ms-2" aria-current="page" routerLink="/cart">
+              <i class="fa-solid fa-cart-plus text-light"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-warning ms-3" aria-current="page" href="/#res">
+              BOOK A TABLE
+            </a>
+          </li>
+        </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!-- search bar -->
+ <div class=" mt-5 mb-5">
+  <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="d-flex mt-5">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="Search Dishes here....">
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+ 
+ </div>
+
+
+  <!-- card -->
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let dish of resultArray | filter:searchTerm: 'title'" class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img style="height: 200px;" class="card-img-top" [src]="dish.image" [alt]="dish.title" />
+                    <!-- Product details-->
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{dish.title.slice(0,20)}}...</h5>
+                            <!-- Product price-->
+                            <h4>Price : {{dish.price}} </h4>
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="d-flex justify-content-evenly">
+                            <!-- add to cart btn -->
+                            <button (click)="addtocart(dish)" class="btn btn-success ms-3">
+                                <i class="fa-solid fa-cart-plus text-light"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

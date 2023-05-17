@@ -1,0 +1,28 @@
+#h1{
+    color: orange;
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    margin-right: 460px;
+    
+}
+.navbar a{
+    font-weight:400;   
+}
+.collapse a:hover{
+    font-size: 20px;
+    color:orange;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+}
+*{
+overflow-x: hidden;
+}
+.fa-2xl {
+    font-size: 2em;
+    line-height: normal;
+    vertical-align: -0.1875em;
+}

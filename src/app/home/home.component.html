@@ -1,0 +1,206 @@
+<app-header></app-header>
+<!-- cards -->
+<div id="service" class="container mt-5">
+    <div class="row p-3">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa-sharp fa-solid fa-user-tie fa-2xl" style="color: #f08e05;"></i> 
+                     <h5 class="card-title">Master Cheif</h5>
+                  <p class="card-text">Chiefs in restaurants focus on enhancing customers’ dining experience</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                  <i class="fa-solid fa-utensils fa-2xl" style="color: #f4aa0b;"></i>
+                  <h5 class="card-title">Quality Food</h5>
+                  <p class="card-text">The restaurant has open Dining area,the scenic beauty coupled with very tasty food.</p>
+                </div>
+              </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                 <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #e78a08;"></i>
+                  <h5 class="card-title">Online Order</h5>
+                  <p class="card-text">The name of the dish to appear in the online restaurant ordering system.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card"> 
+                <div class="card-body">
+                    <i class="fa-solid fa-headset fa-2xl" style="color: #fd8a08;"></i> 
+                   <h5 class="card-title">24/7 SERVICES</h5>
+                  <p class="card-text"> restaurant serving food almost 24X7 next to highways. Dhaba food is legendary in India.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+<!-- about us -->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6">
+      <div class="col-3 d-flex p-2">
+        <img class="i1" width="250px" height="200px" src="https://images.unsplash.com/photo-1538333581680-29dd4752ddf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="">
+        <img width="250px" height="200px" src="https://media.architecturaldigest.com/photos/618a7d98d4dc025cc87e313d/16:9/w_5984,h_3366,c_limit/Exterior%203.jpg" alt="">
+
+      </div>
+      <div class="col-3"> 
+        <img width="520px" height="250px" src="https://img.freepik.com/premium-photo/restaurant_23-2148014999.jpg" alt="">
+      </div>
+    </div>
+    <div class="col-6">
+      <h1 id="about" class="h1 text-warning">About Us</h1>
+      <h1 class="mb-4">Welcome to<i class="fa-solid fa-utensils fa-xl" style="color: #f4aa0b;"></i> Restoran</h1>
+      <p>Restaurants range from inexpensive and informal lunching or dining places catering to people working nearby, with modest food served in simple settings at low prices, to expensive establishments serving refined food and fine wines in a formal setting. In the former case, customers usually wear casual clothing. In the latter case, depending on culture and local traditions, customers might wear semi-casual, semi-formal or formal wear. </p>
+      <p>
+        Typically, at mid- to high-priced restaurants, customers sit at tables, their orders are taken by a waiter, who brings the food when it is ready. After eating, the customers then pay the bill. In some restaurants, such as those in workplaces, there are usually no waiters; . Customers serve food onto their own plates and then pay at the end of the meal. Buffet restaurants typically still have waiters to serve drinks and alcoholic beverages. Fast food establishments are also considered to be restaurants. In addition, food trucks are another popular option for people who want quick food service.
+
+
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- food menu -->
+<h1 id="h2" class="text-center text-warning mt-5">Food Menu</h1>
+<h1 class="text-center">Most Popular Items</h1>
+<div class="card-container p-2 text-center">
+  <div class="card">
+    <img src="https://assets.vogue.com/photos/6352ccb841ea2bd565be085f/4:3/w_4464,h_3348,c_limit/GettyImages-1223580360.jpg" alt="india">
+    <h1><button (click)="viewDishes('indian')" class="btn btn-warning">Indian Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://www.getflavor.com/wp-content/uploads/2019/01/4-Taureaux-Spread.jpg" alt="french">
+    <h1><button (click)="viewDishes('french')" class="btn btn-warning">French Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F3194%2Ftrend20210823114529.jpg" alt="Image 3">
+    <h1><button (click)="viewDishes('chinese')" class="btn btn-warning">Chinese Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://www.tastingtable.com/img/gallery/20-japanese-dishes-you-need-to-try-at-least-once/l-intro-1664219638.jpg" alt="Image 4">
+    <h1><button (click)="viewDishes('japaneses')" class="btn btn-warning">Japanese Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://www.tastingtable.com/img/gallery/20-italian-dishes-you-need-to-try-at-least-once/l-intro-1643403830.jpg" alt="Image 5">
+    <h1><button (click)="viewDishes('italian')" class="btn btn-warning">Italian Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://www.savoredjourneys.com/wp-content/uploads/2015/03/spanish-foods.jpg" alt="Image 5">
+    <h1><button (click)="viewDishes('spanish')" class="btn btn-warning">Spanish Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://i.ndtvimg.com/i/2016-04/lebanese-food_625x350_81459760565.jpg" alt="Image 5">
+    <h1><button (click)="viewDishes('lebanese')" class="btn btn-warning">Lebanese Dishes</button> </h1>
+  </div>
+  <div class="card">
+    <img src="https://i.ytimg.com/vi/vLXh61OpPpA/maxresdefault.jpg" alt="Image 5">
+    <h1><button (click)="viewDishes('american')" class="btn btn-warning">American Dishes</button> </h1>
+  </div>
+</div>
+
+<div class="container w-100 mt-5">
+  <div class="row">
+    <div class="col-6 ">
+      <iframe width="630" height="410" src="https://www.youtube.com/embed/SzH9w4bpIqM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+    </div>
+    <div id="res" class="col-6 text-center bg-dark">
+      <h1 id="reservation" class="h4 text-warning">Reservation</h1>
+      <h2 class="text-light">Book A Table Online</h2>
+      <form [formGroup]="reservationForm" class="form-control p-3" (ngSubmit)="reservation()">
+        <input type="text" name="name"  formControlName="name" class="form-control mb-2" placeholder="Name">
+        <!-- name error msg -->
+        <div *ngIf="this.reservationForm.get('name')?.errors&& this.reservationForm.get('name')?.touched">
+          <p class="text-danger">Invalid Name</p>
+        </div>
+        <input type="text"  name="phone" formControlName="phone" class="form-control mb-2" placeholder="phone Number">
+                <!-- phone error msg -->
+
+        <div *ngIf="this.reservationForm.get('phone')?.errors&& this.reservationForm.get('phone')?.touched">
+          <p class="text-danger">Invalid Mobile Number</p>
+        </div>
+        <input type="date"  name="date" formControlName="date" class="form-control mb-2" placeholder="Date">
+        <!-- date error msg -->
+        <div *ngIf="this.reservationForm.get('date')?.errors&& this.reservationForm.get('date')?.touched">
+          <p class="text-danger">Invalid Date</p>
+        </div>
+        <input type="number"  name="peoples" formControlName="peoples" class="form-control mb-2" placeholder="No. of peoples">
+                <!-- peoples count error msg -->
+        <div *ngIf="this.reservationForm.get('peoples')?.errors&& this.reservationForm.get('peoples')?.touched">
+          <p class="text-danger">Invalid Person Count</p>
+        </div>
+        <input type="text"  name="request" formControlName="request" class="form-control mb-2" placeholder="Special request">
+        <div *ngIf="this.reservationForm.get('request')?.errors&& this.reservationForm.get('request')?.touched">
+          <p class="text-danger">Invalid Request</p>
+        </div>
+        <button type="submit"  class="btn btn-warning">BOOK NOW</button>
+      </form>
+    </div>
+  </div>
+</div>
+ <!-- cheifs -->
+<div>
+  <h1 id="team" class="h4 text-warning text-center mt-5">Team Members</h1>
+  <h2 class="text-center">Our Master Cheifs</h2>
+  <div class="row text-center">
+    <div class="col-4">
+      <div class="card">
+        <img src="https://www.staffingattiffanies.com/wp-content/uploads/2021/08/happy-male-indian-chef.jpg" alt="Image 3">
+        <h2>JOHN DERRY</h2>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <img src="https://www.touchbistro.com/wp-content/uploads/2022/03/hire-a-chef-for-your-restaurant-thumbnail.jpg" alt="Image 3">
+        <h2>ELSY PERRY</h2>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <img src="https://travelmail.in/wp-content/uploads/2023/01/chef.jpg" alt="Image 3">
+        <h2>MICHEL JOY</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="test" class="text-center">
+  <h1 class="h1 text-warning mt-5">Testimonial</h1>
+  <h1>Our Clients Says!!!!!</h1>
+  <div class="row">
+    <div class="col-4">
+      <div class="card" style="width: 22rem;">
+        <div class="card-body">
+          <img style="height: 50px;width: 50px;" src="https://imageio.forbes.com/specials-images/imageserve/5f64397931669e167fc57eaf/0x0.jpg?format=jpg&width=1200" class="rounded-circle me-4" alt="">
+          <i class="fa-solid fa-quote-left fa-2xl " style="color: #e7820d;"></i>
+          <p class="card-text">“I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality of the food and the short amount of time it took to receive it. Our waitress was sweet and helpful. I will definitely be back!” .</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 22rem;">
+        <div class="card-body">
+          <img style="height: 50px;width: 50px;" src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?cs=srgb&dl=pexels-daniel-xavier-1239291.jpg&fm=jpg" class="rounded-circle me-4" alt="">
+          <i class="fa-solid fa-quote-left fa-2xl" style="color: #e7820d;"></i>
+          <p class="card-text">“I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality of the food and the short amount of time it took to receive it. Our waitress was sweet and helpful. I will definitely be back!” .</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card" style="width: 22rem;">
+        <div class="card-body">
+          <img style="height: 50px;width: 50px;" src="https://media.npr.org/assets/img/2022/11/08/ap22312071681283-0d9c328f69a7c7f15320e8750d6ea447532dff66.jpg" class="rounded-circle me-4" alt="">
+          <i class="fa-solid fa-quote-left fa-2xl" style="color: #e7820d;"></i>
+          <p class="card-text">“I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality of the food and the short amount of time it took to receive it. Our waitress was sweet and helpful. I will definitely be back!” .</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<app-footer></app-footer>

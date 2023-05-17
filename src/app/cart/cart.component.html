@@ -1,0 +1,153 @@
+<!-- empty cart -->
+<div *ngIf="allProducts.length==0" class="container py-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6 text-center mt-5 mb-5">
+            <img src="https://bakestudio.in/assets/images/cart/empty-cart.gif" alt="cart empty">
+            <h3 class="text-center text-danger">Your cart is Empty</h3>
+            <a class="btn btn-success  text-center" routerLink="">Add more</a>
+        </div>
+        <div class="col-3 "></div>
+    </div>
+</div>
+
+<!-- more action -->
+ <!-- more actions -->
+ <div *ngIf="allProducts.length!=0" class="d-flex justify-content-end">
+    <!-- empty cart -->
+    <button (click)="emptyCart()" class="btn btn-danger mt-2 me-2"><i class="fa-solid fa-trash fa-beat-fade me-3"></i>Empty cart</button>
+    <!-- shop more -->
+    <button class="btn btn-primary mt-2" routerLink=""><i class="fa-solid fa-cart-shopping fa-shake"></i>Add more</button>
+
+</div>
+
+<!-- cart design -->
+<div *ngIf="allProducts.length!=0" class="container mt-3">
+    <h3 class="mt-5 text-center text-primary">Cart Summery</h3>
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div *ngFor="let dish of allProducts" class="col mb-5">
+                    <div class="card h-60">
+                        <!-- Product image-->
+                        <img height="150px" class="card-img-top" [src]="dish.image" [alt]="dish.title" />
+                        <!-- Product details-->
+                        <div class="card-body p-3">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{dish.title.slice(0,20)}}...</h5>
+                                <!-- Product price-->
+                                <h4>Price : {{dish.price}} </h4>
+                            </div>
+                            <div class="d-flex">
+                            
+                                <!-- decrement quantity -->
+                                <button (click)="decrementquantity(dish.id)"  class="btn btn-success fw-bolder text-light me-2 ms-4">-</button>
+                                <!-- quantity -->
+                                <input type="num" [value]="dish.quantity" class="form-control text-center me-2" id="inputQuantity" style="max-width: 3rem;" readonly >
+                                 <!-- increment quantity -->
+                                 <button (click)="incrementquantity(dish.id)" class="btn btn-success fw-bolder text-light">+</button>
+                                </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-center">
+                                <!-- delete cart -->
+                                <button (click)="removeItem(dish.id)" class="btn" ><i class="fa-solid fa-trash text-danger icon"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- summery -->
+
+<div class="col ms-5 d-flex">
+    <div>
+        <img width="700px" src="https://cdn.dribbble.com/users/1890021/screenshots/8576649/media/fffdfabcea9ffe954570a25aa9423b08.gif" alt="">
+    </div>
+    <div class="col  rounded p-3">
+        <h4 class="text-success">Sub Total: ${{cartTotalPrice}}</h4>
+         <hr>
+         <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Order Now</button>
+</div>
+</div>
+
+<!-- checkout  Modal details-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <img height="100px" width="100px" src="https://cdn.dribbble.com/users/125186/screenshots/5368944/scooter-courier.gif" alt="">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Check Out Details</h1>
+          <button type="button" (click)="modelClose()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h5 *ngIf="proceedtopaymentbtnstatus" class="text-success">Payment Details</h5>
+            <h3 *ngIf="!proceedtopaymentbtnstatus">Enter Your Delivery Details</h3>
+        <form *ngIf="!proceedtopaymentbtnstatus" [formGroup]="addressForm" class="form-control" (ngSubmit)="SubmitBtn()" >
+            <input type="text" name="username" formControlName="username" class="form-control mb-2" placeholder="Username" required>
+            <input type="text" name="flat" formControlName="flat" class="form-control mb-2" placeholder="Apartment/Flat No." required>
+            <input type="text" name="street" formControlName="street" class="form-control mb-2" placeholder="streetname" required>
+            <input type="text" name="state" formControlName="state" class="form-control mb-2" placeholder="City" required>
+            <!-- submit button -->
+            <button type="submit" class="btn btn-primary mt-3" >Proceed To Payment</button>
+        </form>
+
+        <!-- delivery address -->
+         <div *ngIf="proceedtopaymentbtnstatus" class="mt-2 border rounded p-3">
+            <h3>Delivery Address:</h3>
+            <p>{{username}}</p>
+            <p>{{flat}},{{street}}</p>
+            <p>{{state}}</p>
+        </div>
+
+
+     </div>
+        <!-- Total and offer section -->
+        <div class="d-flex justify-content-between">
+            <h6 class="ms-2">Total Amount: <span class="text-danger fw-bolder fs-5">${{cartTotalPrice}}</span></h6>
+            <button *ngIf="!offerClickedstatus" (click)="offerClicked()" class="btn text-primary"> <i class="fa-solid fa-tag fa-fade fa-xl"></i>Delivery Charge</button>
+        </div>
+
+        <!-- offers -->
+        <div  *ngIf="offerClickedstatus" class="d-flex justify-content-evenly mt-3 ">
+                <img *ngIf="cartTotalPrice>1000"  width="300px" height="200px" src="https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/2021-11/Food%20delivery%20image.jpg" alt="free delivery">
+                <div *ngIf="cartTotalPrice<1000">
+                    <h4 class="text-info">Delivery Charge :{{deliverycharge}}</h4>
+                    <h5 class="text-success">(10% of GST Included)</h5>
+                </div>
+
+         </div>
+        <!-- payment success -->
+        <div *ngIf="showSuccess" >
+            <p class="text-success">Transaction has been completed successfully.Your order has been confirmed.
+                Thank You for shopping with us!!!
+            </p>
+        </div>
+        <!-- payment cancel -->
+        <div *ngIf="showCancel" >
+            <p class="text-warning">Transaction has been Cancelled!!! </p>
+        </div>
+        <!-- payment failed -->
+        <div *ngIf="showError">
+            <p class="text-danger">Transaction has been Failed!!! </p>
+        </div>
+
+        <!-- make payment -->
+        <div *ngIf="proceedtopaymentbtnstatus" class="d-flex justify-content-end m-2">
+            <button *ngIf="!showPaypal" (click)="makePayment()" class="btn btn-success">Make Payment</button>
+        </div>
+        <div *ngIf="showPaypal"  class="m-5">
+             <!-- paypal code -->
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        </div> 
+    </div>
+</div>
+ </div>
+ </div>
+
+

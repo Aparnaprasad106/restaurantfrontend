@@ -1,0 +1,54 @@
+#h1{
+    color: orange;
+    font-family: 'Lobster', cursive;
+    font-size: 30px;
+    margin-right: 600px;
+}
+.navbar a{
+    font-weight: 500;   
+}
+.collapse a:hover{
+    font-size: 20px;
+    color:orange;
+}
+.bg{ 
+    height: auto;
+    width: 100%;
+    background-size: cover;
+
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 12;
+}
+.row{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+.rotate {
+    animation: spin 35s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+#btn{
+    width:auto;
+    height: auto;
+}
+#title{
+    font-family: 'Lato', sans-serif;
+}
+.card{
+    height: 300px;
+}
+
+  
